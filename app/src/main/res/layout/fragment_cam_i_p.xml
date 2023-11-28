@@ -7,14 +7,44 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         tools:context=".MainActivity">
+    <TextView
+            android:id="@+id/qrCodeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Captura"
+            android:layout_marginTop="16dp"
+            android:text=""
+            android:textSize="18sp"
+            android:visibility="visible"/>
 
-    <org.videolan.libvlc.util.VLCVideoLayout
-            android:id="@+id/videoView"
+
+    <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/ipAddressEditText"
-            android:layout_centerInParent="true"/>
+            xmlns:android="http://schemas.android.com/apk/res/android">
 
+        <org.videolan.libvlc.util.VLCVideoLayout
+                android:id="@+id/videoView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"/>
+
+        <androidx.camera.view.PreviewView
+                android:id="@+id/cameraPreview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        <View
+                android:id="@+id/qrCaptureFrame"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@drawable/rectangle_detail"
+                android:alpha="0.5"
+                android:translationX="200dp"
+                android:translationY="350dp"
+        />
+
+    </FrameLayout>
 
     <EditText
             android:id="@+id/ipAddressEditText"
@@ -53,4 +83,3 @@
             android:layout_marginBottom="16dp" />
 
 </LinearLayout>
-
